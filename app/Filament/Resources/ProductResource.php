@@ -11,6 +11,7 @@ use Filament\Forms\Components\Section;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -47,6 +48,7 @@ class ProductResource extends Resource
                     Forms\Components\TextInput::make('products_quantity')
                         ->required()
                         ->numeric()
+                        ->visibleOn('create')
                         ->maxValue(42949672),
                     Forms\Components\DatePicker::make('expiration_date')
                         ->minDate(now()),
@@ -73,7 +75,8 @@ class ProductResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('name')
-                    ->searchable(),
+                    ->searchable()
+                    ->sortable(),
                 Tables\Columns\TextColumn::make('price')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('products_quantity'),
@@ -84,10 +87,14 @@ class ProductResource extends Resource
                     ->sortable(),
             ])
             ->filters([
-                //
+                SelectFilter::make('category')
+                    ->relationship('category', 'name')
+                    ->searchable()
+                    ->preload(),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

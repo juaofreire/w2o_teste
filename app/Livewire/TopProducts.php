@@ -30,7 +30,7 @@ class TopProducts extends ChartWidget
         return [
             'datasets' => [
                 [
-                    'label' => 'Top 10 Products',
+                    'label' => 'Products with the highest number of outputs',
                     'data' => $productData,
                 ],
             ],

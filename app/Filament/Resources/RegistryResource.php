@@ -51,6 +51,10 @@ class RegistryResource extends Resource
                         }
                         return $data;
                     }),
+                Tables\Columns\TextColumn::make('created_at')
+                    ->Datetime("d/m/Y")
+                    ->label('Date')
+                    ->sortable(),
                 Tables\Columns\TextColumn::make('type')
                     ->formatStateUsing(fn(string $state)=>Registry::TYPE[$state])
                     ->color(fn(string $state)=>Registry::TYPE_COLOR[$state])
