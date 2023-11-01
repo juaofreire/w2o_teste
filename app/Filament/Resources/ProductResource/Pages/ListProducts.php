@@ -6,7 +6,6 @@ use App\Filament\Resources\ProductResource;
 use App\Models\Employee;
 use App\Models\Product;
 use App\Models\Registry;
-use Barryvdh\DomPDF\Facade\Pdf as FacadePdf;
 use Filament\Actions;
 use Filament\Actions\Action;
 use Filament\Forms\Components\RichEditor;
@@ -15,6 +14,8 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Get;
 use Filament\Notifications\Notification;
 use Filament\Resources\Pages\ListRecords;
+use pxlrbt\FilamentExcel\Actions\Pages\ExportAction;
+use pxlrbt\FilamentExcel\Exports\ExcelExport;
 
 class ListProducts extends ListRecords
 {
@@ -23,19 +24,10 @@ class ListProducts extends ListRecords
     protected function getHeaderActions(): array
     {
         return [
-            Action::make('edit')
-                ->label('PDF')
-                ->color('danger')
-                ->requiresConfirmation()
-                ->action(function(){
-                    
-                    $products = Product::get();
-                    $pdf = FacadePdf::loadView('PDF.products', compact('products'))
-                        ->setPaper('a4')->stream();
-
-                    return $pdf;
-                }),
-
+            ExportAction::make()->exports([
+                ExcelExport::make('table')->fromTable(),
+            ])
+                ->color('danger'),
             Action::make('Create order')
                 ->form([
                     Select::make('employee')->required()
@@ -58,7 +50,7 @@ class ListProducts extends ListRecords
                 ->action(function (array $data) {
                     try {
                         $product=Product::where('id',$data['product'])->first();
-                        $registry=Registry::create([
+                        Registry::create([
                             'type'=>'out',
                             'initial_quantity'=>$product->products_quantity,
                             'alteration'=>$data['products_quantity'],
@@ -99,7 +91,7 @@ class ListProducts extends ListRecords
                 ->action(function (array $data) {
                     try {
                         $product=Product::where('id',$data['subject'])->first();
-                        $registry=Registry::create([
+                        Registry::create([
                             'type'=>'entry',
                             'initial_quantity'=>$product->products_quantity,
                             'alteration'=>$data['products_quantity'],

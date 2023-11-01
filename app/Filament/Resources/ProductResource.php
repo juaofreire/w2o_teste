@@ -50,6 +50,12 @@ class ProductResource extends Resource
                         ->numeric()
                         ->visibleOn('create')
                         ->maxValue(42949672),
+                    Forms\Components\TextInput::make('products_quantity')
+                        ->required()
+                        ->numeric()
+                        ->disabled()
+                        ->visibleOn('edit')
+                        ->maxValue(42949672),
                     Forms\Components\DatePicker::make('expiration_date')
                         ->minDate(now()),
                     Forms\Components\Select::make('category_id')
