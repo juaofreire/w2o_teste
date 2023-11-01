@@ -121,20 +121,18 @@ http://127.0.0.1:8000/
 
 <strong>2. Criação da tabela "employees" para os empregados que solicitaram produtos:</strong>
 
-- A tabela "news" possui os seguintes atributos: id, title, description, user_id, created_at e updated_at.
-- O atributo "user_id" é uma chave estrangeira referenciando o "id" da tabela "users", sendo usado para identificar o criador da notícia.
-- Cada notícia é associada a apenas um criador (usuário), enquanto um usuário pode criar várias notícias.
+- A tabela "employees" possui os seguintes atributos: id, name, email, created_at e updated_at.
+- Cada empregado está associado a vários registros, enquanto um registro está associado a apenas um empregado.
 
 <strong>3. Criação da tabela "categories" conforme solicitado no teste:</strong>
 
-- A tabela "news" possui os seguintes atributos: id, title, description, user_id, created_at e updated_at.
-- O atributo "user_id" é uma chave estrangeira referenciando o "id" da tabela "users", sendo usado para identificar o criador da notícia.
-- Cada notícia é associada a apenas um criador (usuário), enquanto um usuário pode criar várias notícias.
+- A tabela "categories" possui os seguintes atributos: id, name, created_at e updated_at.
+- Cada categoria está associada a vários produtos, enquanto um produto está associado a apenas uma categoria.
 
 <strong>4. Criação da tabela "products" conforme solicitado no teste:</strong>
 
-- A tabela "news" possui os seguintes atributos: id, title, description, user_id, created_at e updated_at.
-- O atributo "user_id" é uma chave estrangeira referenciando o "id" da tabela "users", sendo usado para identificar o criador da notícia.
+- A tabela "products" possui os seguintes atributos: id, name, description, price, products_quantity, avatar_url, expiration_date, category_id, created_at e updated_at.
+- O atributo "category_id" é uma chave estrangeira referenciando o "id" da tabela "categories", sendo usado para identificar o criador da notícia.
 - Cada notícia é associada a apenas um criador (usuário), enquanto um usuário pode criar várias notícias.
 
 <strong>5. Criação da tabela "registries" para o cadastro das entradas e saídas dos produtos:</strong>
