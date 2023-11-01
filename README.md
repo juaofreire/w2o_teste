@@ -132,14 +132,19 @@ http://127.0.0.1:8000/
 <strong>4. Criação da tabela "products" conforme solicitado no teste:</strong>
 
 - A tabela "products" possui os seguintes atributos: id, name, description, price, products_quantity, avatar_url, expiration_date, category_id, created_at e updated_at.
-- O atributo "category_id" é uma chave estrangeira referenciando o "id" da tabela "categories", sendo usado para identificar o criador da notícia.
-- Cada notícia é associada a apenas um criador (usuário), enquanto um usuário pode criar várias notícias.
+- O atributo "category_id" é uma chave estrangeira referenciando o "id" da tabela "categories", sendo usado para identificar a categoria do produto.
+- Cada produto é associado a apenas uma categoria, enquanto uma categoria pode ser associada a vários produtos.
+- Cada produto está associado a vários registros, enquanto um registro pode estar associado a vários produtos.
 
 <strong>5. Criação da tabela "registries" para o cadastro das entradas e saídas dos produtos:</strong>
 
-- A tabela "news" possui os seguintes atributos: id, title, description, user_id, created_at e updated_at.
-- O atributo "user_id" é uma chave estrangeira referenciando o "id" da tabela "users", sendo usado para identificar o criador da notícia.
-- Cada notícia é associada a apenas um criador (usuário), enquanto um usuário pode criar várias notícias.
+- A tabela "registries" possui os seguintes atributos: id, type, initial_quantity, alteration, product_id, user_id, employee_id, created_at e updated_at.
+- O atributo "user_id" é uma chave estrangeira referenciando o "id" da tabela "users", sendo usado para identificar o criador do registro.
+- O atributo "employee_id" é uma chave estrangeira referenciando o "id" da tabela "employee", sendo usado para identificar quem pediu o registro.
+- O atributo "product_id" é uma chave estrangeira referenciando o "id" da tabela "product", sendo usado para identificar o produto do registro.
+- Cada registro é associado a apenas um criador (usuário), enquanto um usuário pode criar vários registros.
+- Cada registro é associado a apenas um empregado, enquanto um empregado pode ser associado a vários registros.
+- Cada registro é associado a apenas um produto, enquanto um produto ser associado a vários registros.
 
 ![image](https://github.com/juaofreire/w2o_teste/assets/112773932/cfb8029f-622d-4c1c-9dd5-24cf329390d7)
 
