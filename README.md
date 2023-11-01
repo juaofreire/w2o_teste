@@ -112,22 +112,38 @@ http://127.0.0.1:8000/
 
 ## Modelagem de Dados:
 
-<strong>Para este projeto, muitas das tabelas já estavam prontas, sendo as únicas mudanças/novidades as seguintes:</strong>
+<strong>Para este projeto, foi necessario a criação das tabelas, categorias, produtos, registros, empregados, usuarios</strong>
 
-<strong>1. Criação da tabela "news" conforme solicitado no teste:</strong>
+<strong>1. Criação da tabela "users" conforme solicitado no teste:</strong>
+
+- A tabela "users" possui os seguintes atributos: id, name, email, email_verifies_at, password, remember_token, created_at e updated_at.
+- Cada usuário está associado a vários registros, enquanto um registro está associado a apenas um usuário.
+
+<strong>2. Criação da tabela "employees" para os empregados que solicitaram produtos:</strong>
 
 - A tabela "news" possui os seguintes atributos: id, title, description, user_id, created_at e updated_at.
 - O atributo "user_id" é uma chave estrangeira referenciando o "id" da tabela "users", sendo usado para identificar o criador da notícia.
 - Cada notícia é associada a apenas um criador (usuário), enquanto um usuário pode criar várias notícias.
 
-<strong>2. Criação do atributo "permission" como medida de segurança para o gerenciamento de usuários:</strong>
+<strong>3. Criação da tabela "categories" conforme solicitado no teste:</strong>
 
-- Apenas o Administrador White (usuário padrão) possui a permissão de administrador (1), enquanto outros usuários criados terão permissão de usuário (0).
-- A permissão de administrador permite a criação, edição (de nome e email ou de senha) e deleção de usuários na aba de gerenciamento de usuários.
-- No momento atual, não há uma forma de dar permissão de administrador para outros usuários além da edição direta no banco.
+- A tabela "news" possui os seguintes atributos: id, title, description, user_id, created_at e updated_at.
+- O atributo "user_id" é uma chave estrangeira referenciando o "id" da tabela "users", sendo usado para identificar o criador da notícia.
+- Cada notícia é associada a apenas um criador (usuário), enquanto um usuário pode criar várias notícias.
 
-![image](https://github.com/juaofreire/w2o_teste/assets/112773932/6e50c569-96cb-4e4e-990d-89eb7cc02c81)
+<strong>4. Criação da tabela "products" conforme solicitado no teste:</strong>
 
+- A tabela "news" possui os seguintes atributos: id, title, description, user_id, created_at e updated_at.
+- O atributo "user_id" é uma chave estrangeira referenciando o "id" da tabela "users", sendo usado para identificar o criador da notícia.
+- Cada notícia é associada a apenas um criador (usuário), enquanto um usuário pode criar várias notícias.
+
+<strong>5. Criação da tabela "registries" para o cadastro das entradas e saídas dos produtos:</strong>
+
+- A tabela "news" possui os seguintes atributos: id, title, description, user_id, created_at e updated_at.
+- O atributo "user_id" é uma chave estrangeira referenciando o "id" da tabela "users", sendo usado para identificar o criador da notícia.
+- Cada notícia é associada a apenas um criador (usuário), enquanto um usuário pode criar várias notícias.
+
+![image](https://github.com/juaofreire/w2o_teste/assets/112773932/cfb8029f-622d-4c1c-9dd5-24cf329390d7)
 
 ## Novas Telas do Sistema:
 
