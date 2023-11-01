@@ -37,6 +37,13 @@ Este projeto consiste no desenvolvimento de um sistema de gerenciamento de produ
 ## Conclusão
 Este projeto apresenta um sistema robusto de gerenciamento de produtos e categorias, com ênfase na usabilidade, validação de dados, segurança e funcionalidades avançadas. É destinado a proporcionar uma experiência eficiente e amigável aos usuários, além de fornecer informações detalhadas sobre o estoque de produtos e sua movimentação no sistema.
 
+### Tecnologias Utilizadas
+- PHP
+- Laravel
+- Fillament
+- MySQL
+- Tailwind
+
 ## Passo a Passo para Começar:
 
 <strong>1. Clone o Repositório:</strong>
@@ -148,7 +155,7 @@ http://127.0.0.1:8000/
 
 ![image](https://github.com/juaofreire/w2o_teste/assets/112773932/cfb8029f-622d-4c1c-9dd5-24cf329390d7)
 
-## Novas Telas do Sistema:
+## Telas do Sistema:
 
 | Dashboard | Gerenciamento de Usuários | Gerenciamento de Empregados |
 | -------- | -------- | -------- |
